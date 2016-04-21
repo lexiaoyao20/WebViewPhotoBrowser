@@ -33,6 +33,8 @@
         _webView.scrollView.scrollsToTop = NO;
         _webView.scalesPageToFit = YES;
         _webView.allowsInlineMediaPlayback = YES;
+        //过滤表情
+        _webView.fm_ignoredImageSymbols = @[@"Scripts/User/face"];
         [self addSubview:_webView];
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
