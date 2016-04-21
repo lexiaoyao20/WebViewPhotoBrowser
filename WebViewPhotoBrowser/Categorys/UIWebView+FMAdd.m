@@ -43,7 +43,7 @@
         }
     }
     
-    return imageURLStr;
+    return imageURLStr.length > 0 ? imageURLStr : nil;
 }
 
 /**
@@ -73,19 +73,12 @@
         return CGRectZero;
     }
     
-//    NSString *js = @"function f(){ var r = document.elementFromPoint(%f, %f).getBoundingClientRect(); \
-//    return '{{'+r.left+','+r.top+'},{'+r.width+','+r.height+'}}'; } f();";
-//    NSString *result = [self stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:js, location.x, location.y]];
-//    CGRect rect = CGRectFromString(result);
-//    
-//    return rect;
+    NSString *js = @"function f(){ var r = document.elementFromPoint(%f, %f).getBoundingClientRect(); \
+    return '{{'+r.left+','+r.top+'},{'+r.width+','+r.height+'}}'; } f();";
+    NSString *result = [self stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:js, location.x, location.y]];
+    CGRect rect = CGRectFromString(result);
     
-    CGFloat left = [self fm_imageLeftFromLocation:location];
-    CGFloat top = [self fm_imageTopFromLocation:location];
-    CGFloat width = [self fm_imageWidthFromLocation:location];
-    CGFloat height = [self fm_imageHeightFromLocation:location];
-    
-    return CGRectMake(left, top, width, height);
+    return rect;
 }
 
 /**
