@@ -64,6 +64,12 @@
     
     CGPoint touchPoint = [tapGesture locationInView:self.webView];
     
+    NSString *tagName = [self.webView fm_tagNameAtLocation:touchPoint];
+    //过滤非图片元素
+    if (![tagName.lowercaseString isEqualToString:@"img"]) {
+        return;
+    }
+    
     NSString *imageURLString = [self.webView fm_imageURLAtLocation:touchPoint];
     if (imageURLString) {
         self.currentImageFrame = [self.webView fm_imageFrameAtLocation:touchPoint];

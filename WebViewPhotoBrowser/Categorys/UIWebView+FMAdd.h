@@ -36,6 +36,15 @@
 - (BOOL)fm_imageExistAtLocation:(CGPoint)location;
 
 /**
+ *  获取Webview上坐标位置元素的标签名称，如 <img>
+ *
+ *  @param location 坐标位置
+ *
+ *  @return
+ */
+- (NSString *)fm_tagNameAtLocation:(CGPoint)location;
+
+/**
  *  从webView上的坐标取图片的frame
  *
  *  @param location webView上的坐标位置
