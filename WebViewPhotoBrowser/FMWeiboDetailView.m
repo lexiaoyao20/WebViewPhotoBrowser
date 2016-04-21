@@ -35,7 +35,6 @@
         _webView.allowsInlineMediaPlayback = YES;
         [self addSubview:_webView];
         
-        //暂时关闭图片浏览功能
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
         tapGesture.delegate = self;
         [tapGesture setDelaysTouchesBegan:YES];
